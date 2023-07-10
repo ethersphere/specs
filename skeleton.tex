@@ -1,0 +1,60 @@
+
+\title{\fontsize{28}\Huge\sc 
+Future-proof Storage\vskip5pt
+\Large economic incentives for sharing storage capacity\vskip1pt\vskip-18pt
+to achieve data persistance
+\vskip1pt\vskip-18pt
+in the Swarm peer to peer network}
+%\renewcommand{\abstractname}{\ }
+\author{Swarm Research Division%
+\thanks{Viktor Trón, Ábel Bodó, Rinke Hendriksen,  Dániel A. Nagy, Daniel Nickless, Gyuri Barabás, Viktor Tóth, Mark Bliss, Callum Toner, Peter Mrekaj, Esad Akar, Alok Nerurkar, Anatol Lupacescu, Áron Fischer.}
+\thanks{The authors thank Houhuli Silur for their thorough review of this work and suggestions for improvement.
+}}
+\date{v5.4 - may the fourth bee with you 2023
+\vskip35pt\includegraphics[width=0.15\textwidth]{fig/logo.pdf}
+}
+\begin{document}
+\maketitle
+\begin{abstract}
+\noindent Swarm is a peer-to-peer network of nodes that collectively provide a decentralised storage and communication solution.  Its built-in incentive system is enforced through smart contracts on the Ethereum blockchain and powered by the BZZ token. While individual nodes are assumed to pursue selfish strategies that maximise their operator's profit, the behaviour of the network as a whole attains emergent properties in alignment with the requirements of such a cloud service.
+
+\medskip
+
+\noindent In this paper, we present a novel solution to make decentralised storage economically self-sustaining. First, we introduce Swarm's basic DISC model of storage and distribution with incentives for bandwidth sharing. Then we describe the system of postage stamps as a costly signal that lets users indicate priority of storage. The smart contract that implements this system lets users purchase postage stamps in batches and accumulates the revenue which serves as the pot to redistribute among storage providers to incentivise the contribution of their disc space. This redistribution is managed by  a set of smart contracts implementing a  system of probabilistic outpayments, called the redistribution game. Genuine storers can claim their reward through the  contract. Part of the evidence that storers provide as proof of entitlement to the reward can be interpreted as signals of demand and supply. These are responded to by automatic price updates, which makes, in turn, storage provision a self-regulating market.
+\end{abstract}
+
+\newpage
+
+\tableofcontents
+
+\newpage
+
+\listoffigures
+\listoftables
+\newpage
+
+\input{article-body.tex}
+
+% \bibliography{refs.bib}
+
+\newpage
+
+
+% \phantomsection 
+\appendix
+\addcontentsline{toc}{section}{Appendix}
+\section*{Appendix}
+\renewcommand{\listtheoremname}{List of definitions and theorems}
+\enlargethispage*{\baselineskip}
+% {\small
+\listoftheorems[ignoreall,show={definition,corollary,lemma,theorem}]
+% }
+\input{appendix-formalism.tex}
+\input{appendix-price-oracle.tex}
+\input{appendix-constants.tex}
+\input{appendix-randomness.tex}
+\input{appendix-density.tex}
+\input{appendix-batch-utilisation.tex}
+
+\end{document}
+
