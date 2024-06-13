@@ -1,4 +1,4 @@
-\subsection{Price oracle}
+\chapter{Price oracle}
 \label{sec:appendix-price-oracle}
 
 The price oracle smart contract receives input from the  redistribution game. Notably the input constitutes information on storage supply relative to the current demand. Since demand is maxed out with storage depth, this information is simply captured by the number of honest revealers per neighbourhood. Rounds when there are no revealers should be treated as rounds where the number of revealers is zero therefore the number of skipped rounds is passed to the price update function too.

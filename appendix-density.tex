@@ -1,4 +1,4 @@
-\section{Density-based size estimation}\label{sec:density}
+\chapter{Density-based size estimation}\label{sec:density}
 
 Nodes in Swarm must utilise their full reserve capacity: nodes will potentially further replicate chunks in case they have unused reserve capacity beyond storing their share necessary for a system-wide level of redundancy required. To incentivise this, participating in the redistribution game involves a check called \emph{proof of resources} which is supposed to verify the size of reserve from which the reserve samples are generated.
 The insight here is that the sample is the lowest range of a uniformly random variate over the entire 256-bit address space. Intuitively, the higher the original volume of the sampled set, the denser it is, the lower the expected maximum value in the sample.

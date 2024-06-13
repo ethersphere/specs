@@ -1,5 +1,9 @@
 \documentclass[a4paper,12pt,openany,hyperfootnotes,hidelinks]{scrbook}
 \usepackage[utf8]{inputenc}
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+\PassOptionsToPackage{dvipsnames,svgnames,x11names}{xcolor}
 \usepackage[titletoc,title]{appendix}
 \usepackage[linedheaders,parts,pdfspacing,manychapters]{classicthesis}
 \usepackage[]{fullpage}
@@ -22,12 +26,7 @@
 \usepackage{csquotes}
 \usepackage{tikz}
 \usetikzlibrary{arrows.meta,fit,positioning,shapes}
-% \usetikzlibrary{matrix,arrows.meta,fit,positioning,shapes,automata}
-% \usepackage{forest}
-%
-% \usepackage{breakcites} % splits long citations to several lines
-% \newcolumntype{L}{>{\raggedright\arraybackslash}X}
-%
+% 
 \setcounter{tocdepth}{2}
 %
 \let\headheight=\baselineskip
@@ -70,7 +69,7 @@
  \fi
 }
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\bibliographystyle{apalike}
+% \bibliographystyle{apalike}
 \setabbreviationstyle{short-em-nolong} % abbreviation / acronym should be just short form and emphasis = short-em-nolong
 \input{glossary.tex}
 \input{acronyms.tex}
@@ -148,15 +147,15 @@
 \newcommand\PO{\mathit{PO}}
 \newcommand\Keys{\mathcal{K}}
 \newcommand\nil{\varnothing}
-% \newcommand\swip[1]{\url[SWIP-#1]{https://github.com/ethersphere/SWIPs/blob/master/SWIPs/swip-#1.md}}
-\newcommand\defeq{\overset{\textrm{\tiny  def}}{=}}
+\newcommand\defeq{\overset{\textrm{\tiny def}}{=}}
+\newcommand\Xor{\underset{\textbf{\Large--}}{\bigvee}}
 \providecommand{\xor}{\veebar}
-\newcommand{\idx}[1]{\texttt{[}\/#1\/\texttt{]}}
+\newcommand{\validator}[1]{\mathbb{V}^{\textsc{#1}}}
+\newcommand{\proofof}[1]{\Pi^{\textsc{#1}}}\newcommand{\idx}[1]{\texttt{[}\/#1\/\texttt{]}}
 \DeclareMathOperator{\concat}{\operatorname{\oplus}}
 \DeclareMathOperator{\Concat}{\operatornamewithlimits{\bigoplus}}
 \DeclareMathOperator{\rangedel}{:}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% new math environments
 \usepackage{thmtools}
 \makeatletter
 \def\ll@definition{%
@@ -169,16 +168,56 @@
 \def\l@thmt@definition{} 
 \makeatother
 \declaretheoremstyle[
-spaceabove=6pt, spacebelow=6pt,headfont=\normalfont\bfseries,notefont=\mdseries, notebraces={}{},bodyfont=\normalfont,postheadspace=1em]{theorem}
-\declaretheorem[style=theorem]{definition}
+spaceabove=8pt, spacebelow=8pt,headfont=\normalfont\bfseries,headpunct={.\\},notefont=\bfseries, notebraces={ -- }{},bodyfont=\normalfont,postheadspace=4pt,qed={}]{theorem}
+% \newtheorem{definition}{Definition}
+% \newtheorem{corollary}[definition]{Corollary}
+% \newtheorem{theorem}[definition]{Theorem}
+% \newtheorem{lemma}[definition]{Lemma}
+
 \declaretheorem[style=theorem]{theorem}
-%\theoremstyle{definition}
-%\newtheorem{definition}{Definition}%[section]
-%%
-% \newtheorem{theorem}{Theorem}[section]
-% \newtheorem{lemma}{Lemma}[section]
-% \newtheorem{corollary}{Corollary}[section]
+\declaretheorem[style=theorem,sibling=theorem]{definition}
+\declaretheorem[style=theorem,sibling=theorem]{corollary}
+\declaretheorem[style=theorem,sibling=theorem]{lemma}%
 \renewcommand{\listtheoremname}{List of definitions}
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\newenvironment{Shaded}{}{}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{#1}}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.49,0.56,0.16}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.53,0.00,0.00}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.56,0.13,0.00}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.73,0.13,0.13}{\textit{#1}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.02,0.16,0.49}{#1}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.40,0.40,0.40}{#1}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.74,0.48,0.00}{#1}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.73,0.40,0.53}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.10,0.09,0.49}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{#1}}}}
 %
 \makeatletter % legacy /sc command support
 %\DeclareOldFontCommand{\rm}{\normalfont\rmfamily}{\mathrm}

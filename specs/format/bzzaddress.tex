@@ -2,7 +2,7 @@
 
 Swarm's overlay network uses 32-byte addresses. In order to help  uniform utilisation of the address space,  these addresses must be derived using a hash function. A Swarm node must be associated a \gloss{Swarm base account} or \gloss{bzz account}, which is an Ethereum account that the node (operator) must possess the private key for. The node's overlay address is derived the public key of this account. 
 
-\begin{definition}[Swarm overlay address of node A]\label{def:overlay}
+\begin{definition}[Swarm overlay address of node A]\label{def:buzzoverlay}
 \begin{equation}
 \mathit{overlayAddress}(A) \defeq \mathit{Hash}(\mathit{ethAddress}|\mathit{bzzNetworkID})         
 \end{equation}

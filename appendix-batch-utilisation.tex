@@ -1,4 +1,4 @@
-\section{Batch utilisation}\label{sec:batch-utilisation}
+\chapter{Batch utilisation}\label{sec:appendix-batch-utilisation}
 
 
 When pushing content to the Swarm network, uploaders are required to
@@ -106,7 +106,7 @@ low values of $k$, as depicted in Figure~\ref{fig-normal-binomial}.
 
 \begin{figure}
   \centering
-  \includegraphics[width=0.7\textwidth]{postage_batch_utilization_figs/fig-normal-binomial-1.pdf}
+  \includegraphics[width=0.7\textwidth]{fig/fig-normal-binomial-1.pdf}
   \caption[Approximating negative binomial]{\label{fig-normal-binomial}Approximating negative binomial distributions with limiting normal ones. The number of buckets $n$ is fixed at 100.}
 \end{figure}
 
@@ -252,14 +252,14 @@ only by tenfold, independently of bucket size.
 
 \begin{figure}[!ht]
   \centering
-  \includegraphics[width=0.49\textwidth]{postage_batch_utilization_figs/fig-mean-1.pdf} \includegraphics[width=0.49\textwidth]{postage_batch_utilization_figs/fig-mean-2.pdf}
+  \includegraphics[width=0.49\textwidth]{fig/fig-mean-1.pdf} \includegraphics[width=0.49\textwidth]{fig/fig-mean-2.pdf}
   \caption[Expected miss rate, for various parameters.]{\label{fig-mean}Expected miss rate, for various parameters. Left: miss rate against the number of buckets. Right: miss rate against bucket size.}
 \end{figure}
 
 
 \begin{figure}[!ht]
   \centering
-  \includegraphics[width=0.49\textwidth]{postage_batch_utilization_figs/fig-sd-1.pdf} \includegraphics[width=0.49\textwidth]{postage_batch_utilization_figs/fig-sd-2.pdf}
+  \includegraphics[width=0.49\textwidth]{fig/fig-sd-1.pdf} \includegraphics[width=0.49\textwidth]{fig/fig-sd-2.pdf}
   \caption[Normalized standard deviation of utilization rate]{\label{fig-sd}Normalized standard deviation of utilization rate, for various parameters. Left: relative standard deviation against the number of buckets. Right: relative standard deviation against bucket size.}
 \end{figure}
 
@@ -270,7 +270,7 @@ Looking at relative standard deviation of the distribution for various values of
 
 \begin{figure}[!ht]
   \centering
-  \includegraphics[width=0.49\textwidth]{postage_batch_utilization_figs/fig-qua-1.pdf} \includegraphics[width=0.49\textwidth]{postage_batch_utilization_figs/fig-qua-2.pdf}
+  \includegraphics[width=0.49\textwidth]{fig/fig-qua-1.pdf} \includegraphics[width=0.49\textwidth]{fig/fig-qua-2.pdf}
   \caption[Quantiles of the utilization rate]{\label{fig-qua}Quantiles of the utilization rate, for
 various parameters. Left: the quantile function of the utilization
 rate. Right: mean, median, 10\%, and 1\% percentiles of utilization against the number of buckets.}
@@ -278,12 +278,12 @@ rate. Right: mean, median, 10\%, and 1\% percentiles of utilization against the 
 
 \begin{figure}[!ht]
   \centering
-  \includegraphics[width=0.49\textwidth]{postage_batch_utilization_figs/fig-q-1.pdf} \includegraphics[width=0.49\textwidth]{postage_batch_utilization_figs/fig-q-2.pdf}
+  \includegraphics[width=0.49\textwidth]{fig/fig-q-1.pdf} \includegraphics[width=0.49\textwidth]{fig/fig-q-2.pdf}
   \caption[Quantiles of the miss rate]{Quantiles of the miss rate for various parameters. Left: one-in-a-thousand quantile for miss rate against bucket size. Right: miss rate in terms of percentiles, against number of buckets.}
 \label{fig-q}
 \end{figure}
 
-
+ 
 Eventually, we aim to use the information on utilization rates to
 protect the user from being surprised at the effective utilization of
 their postage batch. To this end, we apply the volume calibration using

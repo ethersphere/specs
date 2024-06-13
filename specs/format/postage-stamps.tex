@@ -1,6 +1,5 @@
 
-\subsection{Stamps for upload}
-\subsubsection{Witness type}
+\subsection{Witness type}
 
 There can be different implementations of postage stamps that differ in the structure and semantics of the \emph{proof of payment}. To allow for new cryptographic mechanisms to be used as they are developed, the \lstinline{witnessType} argument indicates the type of the witness used. 
 
@@ -22,7 +21,7 @@ The inclusion of the entire public key in each RSA witness rather than storing t
 
 Note that cryptographic advances can render RSA witnesses insecure without rendering Ethereum insecure, therefore RSA witnesses can be phased out in future versions of the protocol, if the security of RSA signatures gets compromised. Note, furthermore, that such blind signing services are not entirely trustless, through the damage they can incur is bounded. Trustless blind stamping services based on ZK proofs are not feasible at this stage, as the current algorithms are not sufficiently performant for the purpose, but given the rapid advances in the field, the development of suitable algorithms can be expected in the future, in which case a corresponding witness type will have to be specified in a separate SWIP.
 
-\subsubsection{Contract Upgrades}
+\subsection{Contract Upgrades}
 
 In order to facilitate the upgrade of the contract either in case of a discovered vulnerability or some feature extension (such as adding new witness types), it is recommended that the part holding the funds with the database of payments and the part that verifies witnesses are in separate contracts so that a backwards-compatible upgrade can be performed with minimal disruption.
 
@@ -41,7 +40,7 @@ validity period, i.e. when \lstinline{block.timestamp} (the output of \lstinline
 \lstinline{endValidity} (exclusive). Outside of the validity period, the return value is \lstinline{undefined}.
  
 
-\begin{definition}[Postage stamp basic types: batchID, address, witness, stamp, validity]\label{def:postage-stamp}
+\begin{definition}[Postage stamp basic types: batchID, address, witness, stamp, validity]\label{def:buzz-postage-stamp}
 \begin{lstlisting}[language=buzz1]
 // /postage
 
@@ -64,6 +63,6 @@ as
 \end{lstlisting}
 \end{definition}
 
-\subsection{Postage subscriptions}\label{spec:format:subscriptions}
+% \section{Postage subscriptions}\label{spec:format:subscriptions}
 
-\subsection{Postage lottery race}\label{spec:format:race}
+% \section{Postage lottery race}\label{spec:format:race}
